@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="">
+        <ul class="hello">
+            
+        </ul>
+        <input type="text" id="name"  onkeyup="change()">
+        <p id="yourname"></p>
+    </div>
+</body>
+<script type="text/javascript">
+    const json ={
+        "name":"sumon",
+        "web":"www.sumon.com",
+        "skills":["python","javascript","css3","Java","PHP"],
+        "friends":[
+            {"name":"rakib","dept":"cse"},
+            {"name":"khalid","dept":"eee"},
+            {"name":"shakil","dept":"IPe"}
+        ]
+    }
+    for(var i=0;i<json.friends.length;i++){
+        const name = document.querySelector(".hello");
+        const li = document.createElement("li");
+        li.innerHTML=json.friends[i].name;
+        name.appendChild(li);
+        console.log(json.friends[i].name);
+    }
+    var data ={name: "sumon"}
+        
+    function change(){
+        data.name = document.getElementById("name").value;
+        document.getElementById("yourname").innerHTML = "your name is : "+data.name; 
+    }
+    
+    
+</script>
+</html>

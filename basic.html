@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id">
+        <ul>
+            <p v-for="single in todos">{{single.text}}</p>
+        </ul>
+        <h2 >{{varsity}}</h2>
+        <input type="text" v-model="varsity" name="" id="">
+        <button v-on:click="reverseVarsity">Reverse</button>
+        <todo-item
+        v-for="item in todos"
+        v-bind:todo="item"
+        ></todo-item>
+    </div>
+    
+</body>
+<script src="vue.js"></script>
+<script type="text/javascript">
+    Vue.component('todo-item', {
+       template: '<li>{{todo.text}}</li>',
+       props: ['todo'],
+    })
+    var vue = new Vue({
+        el:"#id",
+        data:{
+            todos: [
+                    { text: 'Learn JavaScript' },
+                    { text: 'Learn Vue' },
+                    { text: 'Build something awesome' }
+                    ],
+            dept:'cse',
+            varsity:'JUST',  
+        },
+        methods:{
+            reverseVarsity:function(){
+                this.varsity = this.varsity.split('').reverse().join('');
+            }
+        }
+    })
+</script>
+</html>
